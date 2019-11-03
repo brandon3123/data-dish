@@ -20,7 +20,18 @@ router.get('/queryRestaurants', function(req, res, next) {
 
     restaurantResponse = request(options)
         .then(function (response) {
-            res.render('search', { restaurantResponse: JSON.stringify(response, null, 2) });
+
+            var responseCollection = [];
+
+            for (let index in response.restaurants) {
+                var restaurant = response.restaurants[index].restaurant;
+
+                responseCollection.push(buildRestaurant(restaurant))
+            }
+
+            console.log(JSON.stringify(responseCollection, null, 2));
+
+            res.render('search', { restaurantResponse: responseCollection });
         })
         .catch(function (error) {
             console.log(error);
@@ -31,5 +42,17 @@ router.get('/queryRestaurants', function(req, res, next) {
 
 
 });
+
+function buildRestaurant (originalEntity) {
+    return {
+        id:originalEntity.id,
+        name: originalEntity.name,
+        street: originalEntity.location.address.substr(0, originalEntity.location.address.indexOf(',')),
+        postalCode: originalEntity.location.zipcode,
+        city: originalEntity.location.city,
+        lat: originalEntity.location.latitude,
+        long: originalEntity.location.longitude
+    }
+}
 
 module.exports = router;

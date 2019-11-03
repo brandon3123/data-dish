@@ -6,34 +6,66 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script>
+        function myMap() {
+            var things = document.getElementsByClassName("mapObject");
+
+            for (let index in things) {
+                var element = things[index];
+                var mapProp= {
+                    center:new google.maps.LatLng(element.dataset.lat,element.dataset.long),
+                    zoom:15,
+                };
+                var map = new google.maps.Map(document.getElementById("myMap" + element.dataset.identifier), mapProp);
+                var marker = new google.maps.Marker({
+                    position:  new google.maps.LatLng(element.dataset.lat, element.dataset.long),
+                    map: map,
+                    animation: google.maps.Animation.DROP
+                });
+            }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3MKfXhqoMnntqSjSsQk1o4tK-_epAQIQ&callback=myMap"></script>
 </head>
 <body>
 
-<div class="row justify-content-md-center p-lg-5">
+<div class="row justify-content-md-start p-5">
     <h1>Search For a Restaurant</h1>
 </div>
 
-<div class="row justify-content-md-center">
-    <form class="border border-secondary rounded pt-4 pl-5 pb-5 pr-5" action="/search/queryRestaurants" method="get">
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="inputRestaurant4" placeholder="Restaurant">
+<div class="row justify-content-md-start">
+    <div class="col-md-3 pl-5">
+        <form class="border border-secondary rounded pt-4 pl-5 pb-5 pr-5" action="/search/queryRestaurants" method="get">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="inputRestaurant4" placeholder="Restaurant">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="inputCity4" placeholder="City">
+                </div>
             </div>
-            <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="inputCity4" placeholder="City">
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary float-right">Search</button>
-    </form>
-
-
-</div>
-
-<div class="row justify-content-md-center">
-    <div class="col-md-12">
-        <pre><code>&lt;p&gt;<%- restaurantResponse %>&lt;/p&gt;</code></pre>
+            <button type="submit" class="btn btn-primary float-right">Search</button>
+        </form>
     </div>
 
+
+    {{#each restaurantResponse}}
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <div id="myMap{{id}}" class="mapObject"  data-identifier="{{id}}" style="width:100%;height:400px;" data-lat="{{lat}}" data-long="{{long}}">
+                        <script>myMap()</script>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{name}}</h3>
+                    <h5 class="card-subtitle mb-2 text-muted"><i>{{street}}</i></h5>
+                    <h5 class="card-subtitle mb-2 text-muted"><i>{{city}}</i></h5>
+                    <h5 class="card-subtitle mb-2 text-muted"><i>{{postalCode}}</i></h5>
+                </div>
+            </div>
+        </div>
+    {{/each}}
 </div>
 
 </body>
