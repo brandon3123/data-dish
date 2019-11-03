@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var ejs = require('ejs');
+var handlebars = require('handlebars');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -12,9 +14,8 @@ var searchRouter = require('./routes/search');
 var app = express();
 
 // view engine setup
-app.engine('html', ejs.renderFile);
-// app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
@@ -43,7 +44,8 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error.html');
+  console.log(err)
+  res.render('error');
 });
 
 module.exports = app;
