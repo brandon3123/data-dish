@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bb108160-66b2-4ec6-856a-03d73b0895a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/search.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/search.hbs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,6 +77,7 @@
       <workItem from="1572223292964" duration="760000" />
       <workItem from="1572225249515" duration="11000" />
       <workItem from="1572726045109" duration="11038000" />
+      <workItem from="1573006526403" duration="3979000" />
     </task>
     <task id="LOCAL-00001" summary="Added a few dependencies, bootstrap/request-promise etc. Also got an API call to work. I'll parse the JSON response next and get it looking food for display.">
       <created>1572739252675</created>
@@ -95,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572744853493</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="It looks a lot better now. Using google maps api as well. Yay!">
+      <created>1572752109211</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1572752109211</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +122,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added a few dependencies, bootstrap/request-promise etc. Also got an API call to work. I'll parse the JSON response next and get it looking food for display." />
     <MESSAGE value="handlebars added and swapped html out. Can't figure out templates atm, do that later." />
-    <option name="LAST_COMMIT_MESSAGE" value="handlebars added and swapped html out. Can't figure out templates atm, do that later." />
+    <MESSAGE value="It looks a lot better now. Using google maps api as well. Yay!" />
+    <option name="LAST_COMMIT_MESSAGE" value="It looks a lot better now. Using google maps api as well. Yay!" />
   </component>
 </project>

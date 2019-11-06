@@ -1,8 +1,15 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@media (min-width: 768px) {
+  .nav .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+  }
+
+  .nav .navbar-collapse {
+    text-align: center;
+  }
 }
 
-a {
-  color: #00B7FF;
+#searchBar {
+  width: 500px !important;
 }
